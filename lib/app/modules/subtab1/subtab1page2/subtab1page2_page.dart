@@ -19,6 +19,7 @@ class _Subtab1page2PageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red[100],
       appBar: AppBar(
         title: Text(widget.title),
       ),
