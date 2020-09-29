@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'subtab1page2_controller.dart';
 
@@ -21,8 +22,23 @@ class _Subtab1page2PageState
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Observer(builder: (_) {
+              return Text(
+                '${controller.value}',
+                style: Theme.of(context).textTheme.headline2,
+              );
+            }),
+            FlatButton(
+              color: Colors.red,
+              child: Text('Increment'),
+              onPressed: () => controller.increment(),
+            ),
+          ],
+        ),
       ),
     );
   }
